@@ -1,0 +1,12 @@
+<% include ../partials/header %>
+
+<div class="post-form-page-header">Comment on <%= post.title %></div>
+<form class="post-form" action="/posts/<%= post._id %>/comments" method="POST">
+    <!--<div class="post-form-header">Author</div>-->
+    <!--    <input class="post-form-title" type="text" name="comment[title]" placeholder="Title" maxlength="200" required>-->
+    <div class="post-form-header">Text</div>
+        <textarea class="post-form-body" type="text" name="comment[body]" placeholder="Detailed description goes here (optional)." rows="5" maxlength="200"></textarea>
+    <input class="post-form-submit" type="submit">
+</form>
+
+<% include ../partials/footer %>

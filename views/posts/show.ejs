@@ -1,0 +1,59 @@
+<% include ../partials/header %>
+
+<div class="post">
+    <div class="post-header">
+        <h3 class="post-title"><%= post.title %></h3>
+        <div class="post-date"><%= moment(post.created).fromNow() %></div>
+    </div>
+    <img class="post-image-show" src="<%= post.image %>">
+    <div class="post-details">
+        <div class="post-stats">### points · <%= post.comments.length %> comments</div>
+        <% if (currentUser && currentUser._id.equals(post.author.id)) { %> 
+        <a class="post-control" href="/posts/<%= post._id %>/edit">edit</a>
+        <% } else { %>
+        <a class="post-control" href=""></a>
+        <% } %>
+    </div>
+    <div class="post-buttons">
+        <a class="post-button upvote" href=""><ion-icon name="thumbs-up"></ion-icon></a>
+        <a class="post-button upvote" href=""><ion-icon name="thumbs-down"></ion-icon></a>
+        <a class="post-button comments" href=""><ion-icon name="chatboxes"></ion-icon></a>
+    </div>
+    <div class="post-text">
+        <a class="post-profile" href="">
+            <% if (!post.author.profilePicture) { %> 
+            <img src="https://soulcore.com/wp-content/uploads/2018/01/profile-placeholder.png">
+            <% } else { %>
+            <img src="<%= post.author.profilePicture %>">
+            <% } %>
+        </a>
+        <p class="post-body"><%= post.body %></p>
+    </div>
+    <form class="post-comment-form" action="/posts/<%= post._id %>/comments" method="POST">
+        <textarea class="post-comment-form-body" type="text" name="comment[body]" placeholder="Comment on the work." rows="3" maxlength="600"></textarea>
+        <input class="post-comment-form-submit" type="submit" value=">">
+    </form>
+    <div class="post-comments">
+    <% post.comments.forEach(function(comment){ %>
+        <div class="post-comment">
+            <p class="post-comment-body"><%= comment.body %></p>
+            <a class="post-comment-profile" href="">
+                <% if (!comment.author.profilePicture) { %> 
+                <img src="https://soulcore.com/wp-content/uploads/2018/01/profile-placeholder.png">
+                <% } else { %>
+                <img src="<%= comment.author.profilePicture %>">
+                <% } %>
+            </a>
+                <% if (currentUser && comment.author.id.equals(currentUser._id)) { %> 
+                    <form class="post-comment-delete" action="/posts/<%=post._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                      <button class="post-comment-delete" onclick="return confirm('Are you sure you want to delete this comment?');">Delete</button>
+                    </form>
+                <% } else { %>
+                <div></div>
+                <% } %>
+        </div>
+    <% }) %>
+    </div>
+</div>
+    
+<% include ../partials/footer %>

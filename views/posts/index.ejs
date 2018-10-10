@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+<% posts.forEach(function(post){ %>
+    <div class="post">
+        <div class="post-header">
+            <h3 class="post-title"><a href="/posts/<%= post._id %>"><%= post.title %></a></h3>
+            <div class="post-date"><%= moment(post.created).fromNow() %></div>
+        </div>
+        <img class="post-image-index" src="<%= post.image %>">
+        <div class="post-buttons">
+            <a class="post-button upvote" href=""><ion-icon name="thumbs-up"></ion-icon></a>
+            <a class="post-button upvote" href=""><ion-icon name="thumbs-down"></ion-icon></a>
+            <a class="post-button comments" href="/posts/<%= post._id %>"><ion-icon name="chatboxes"></ion-icon></a>
+        </div>
+    </div>
+<% }) %>
+
+<% include ../partials/footer %>

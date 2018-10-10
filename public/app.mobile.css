@@ -1,0 +1,49 @@
+.user-form-page-header {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #45a885;
+    padding: 10px 10px;
+    border-radius: 2px 2px 0px 0px;
+}
+
+.user-form {
+    display: grid;
+    grid-template-columns: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 0px 0px 2px 2px;
+}
+
+.user-form-header {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.user-form input {
+    padding: 5px;
+    margin: 5px 0px 10px;
+    border: 1px solid lightgrey;
+}
+
+.user-form textarea {
+    padding: 5px;
+    margin: 5px 0px 10px;
+    font-family: "Source Sans Pro";
+    max-width: 100%;
+    resize: vertical;
+    border: 1px solid lightgrey;
+    white-space: pre-line;
+}
+
+input.user-form-submit {
+    font-weight: bold;
+    font-size: 12px;
+    background-color: #45a885;
+    border: none !important;
+    color: white;
+}
+
+input.user-form-submit:hover {
+    background-color: #222;
+}

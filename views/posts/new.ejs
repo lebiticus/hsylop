@@ -1,0 +1,14 @@
+<% include ../partials/header %>
+
+<div class="post-form-page-header">New Post</div>
+<form class="post-form" action="/posts" method="POST">
+    <div class="post-form-header">Title</div>
+        <input class="post-form-title" type="text" name="post[title]" placeholder="Title" maxlength="200" required>
+    <div class="post-form-header">Image</div>
+        <input class="post-form-image" type="text" name="post[image]" placeholder="URL" required>
+    <div class="post-form-header">Text</div>
+        <textarea class="post-form-body" type="text" name="post[body]" placeholder="Detailed description goes here (optional)." rows="10" maxlength="600"></textarea>
+    <input class="post-form-submit" type="submit">
+</form>
+
+<% include ../partials/footer %>

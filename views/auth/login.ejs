@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+
+<div class="user-form-page-header">Login</div>
+<form class="user-form" action="/login" method="POST">
+    <!--<div class="user-form-header">Email</div>-->
+    <!--    <input class="user-form-email" type="email" name="user[email]" placeholder="email" maxlength="100" required>-->
+    <div class="user-form-header">Username</div>
+        <input class="user-form-username" type="text" name="username" placeholder="Username" maxlength="30" required>
+    <div class="user-form-header">Password</div>
+        <input class="user-form-password" type="password" name="password" placeholder="Password" maxlength="40" required>
+    <input class="user-form-submit" type="submit" value="Login">
+</form>
+
+<!--<div class="login-google">-->
+<!--    <a href=""><img src="https://ssl.gstatic.com/images/branding/lockups/2x/lockup_gplus_light_color_88x24dp.png"></a>-->
+<!--</div>-->
+
+<div class="user-extra"> 
+    <a href="/register">Sign Up</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<% include ../partials/footer %>
